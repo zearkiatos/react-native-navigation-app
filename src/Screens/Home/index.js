@@ -13,6 +13,11 @@ const HomeScreen = ({ navigation }) => {
     )
 }
 
+HomeScreen.navigationOptions = {
+    title: 'Home',
+
+};
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,

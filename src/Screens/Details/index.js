@@ -8,8 +8,15 @@ const DetailsScreen = ({ navigation }) => {
         <View style={styles.container}>
             <Text>Details Screen {user} {userId}</Text>
             <Button title="Go Back" onPress={() => navigation.goBack()} />
+            <Button title="Change title" onPress={() => navigation.setParams({title: `User ${userId}`})} />
         </View>
     );
+};
+
+DetailsScreen.navigationOptions = ({ navigation }) => {
+    return {
+        title: navigation.getParam('title', 'Loading...')
+    };
 };
 
 const styles = StyleSheet.create({
