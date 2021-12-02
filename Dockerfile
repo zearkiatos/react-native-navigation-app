@@ -8,8 +8,6 @@ WORKDIR /app
 COPY . ./
 RUN npm install
 RUN npm install -g expo-cli
-RUN expo install expo-location
-RUN expo install react-native-maps  
 
 EXPOSE 19006
 
