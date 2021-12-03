@@ -13,9 +13,12 @@ const DetailsScreen = ({ navigation }) => {
     );
 };
 
-DetailsScreen.navigationOptions = ({ navigation }) => {
+DetailsScreen.navigationOptions = ({ navigation, navigationOptions }) => {
     return {
-        title: navigation.getParam('title', 'Loading...')
+        title: navigation.getParam('title', 'Loading...'),
+        headerStyle: {
+            backgroundColor: navigationOptions.headerStyle.backgroundColor
+        }
     };
 };
 
