@@ -1,34 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 const DetailsScreen = ({ navigation }) => {
-    const user = navigation.getParam('user');
-    const userId = navigation.getParam('userId');
-    
-    return (
-        <View style={styles.container}>
-            <Text>Details Screen {user} {userId}</Text>
-            <Button title="Go Back" onPress={() => navigation.goBack()} />
-            <Button title="Change title" onPress={() => navigation.setParams({title: `User ${userId}`})} />
-        </View>
-    );
+  const [count, setCount] = useState(0);
+  const increment = () => setCount(count + 1);
+  useEffect(() => {
+    navigation.setParams({ increment });
+  }, [count]);
+  const user = navigation.getParam("user");
+  const userId = navigation.getParam("userId");
+
+  return (
+    <View style={styles.container}>
+      <Text>
+        Details Screen {user} {userId} The counter value is {count}
+      </Text>
+      <Button title="Go Back" onPress={() => navigation.goBack()} />
+      <Button
+        title="Change title"
+        onPress={() => navigation.setParams({ title: `User ${userId}` })}
+      />
+    </View>
+  );
 };
 
 DetailsScreen.navigationOptions = ({ navigation, navigationOptions }) => {
-    return {
-        title: navigation.getParam('title', 'Loading...'),
-        headerStyle: {
-            backgroundColor: navigationOptions.headerStyle.backgroundColor
-        }
-    };
+  return {
+    title: navigation.getParam("title", "Loading..."),
+    headerStyle: {
+      backgroundColor: navigationOptions.headerStyle.backgroundColor
+    },
+    headerRight: (
+      <Button
+        onPress={() => navigation.getParam("increment")}
+        title="+1"
+        color="#555"
+      />
+    )
+  };
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
 
-export default DetailsScreen
+export default DetailsScreen;
