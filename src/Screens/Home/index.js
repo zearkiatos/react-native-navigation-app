@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { Ionicons } from '@expo/vector-icons'
 import Logo from '../../components/Logo'
 
 const HomeScreen = ({ navigation }) => {
@@ -9,10 +10,7 @@ const HomeScreen = ({ navigation }) => {
       <Button
         title="Details"
         onPress={() =>
-          navigation.navigate("Details", {
-            user: "Test user",
-            userId: 2
-          })
+          navigation.openDrawer()
         }
       />
     </View>
@@ -20,6 +18,9 @@ const HomeScreen = ({ navigation }) => {
 };
 
 HomeScreen.navigationOptions = {
+  drawerIcon: ({ tintColor }) => {
+    return <Ionicons name='ios-information-circle' size={25} color={tintColor}/>
+  },
   headerTitle: <Logo />,
   headerStyle: {
       backgroundColor: '#f00'
