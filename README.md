@@ -6,3 +6,4 @@ This is a react native ⚛️ 📱 for understand and learn react native navigat
 
 # Using Dependencies
 react-navigation react-native-gesture-handler react-native-reanimated react-native-screens
+react-navigation-tabs
