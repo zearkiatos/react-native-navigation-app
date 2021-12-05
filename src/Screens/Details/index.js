@@ -27,12 +27,9 @@ const DetailsScreen = ({ navigation }) => {
   );
 };
 
-DetailsScreen.navigationOptions = ({ navigation, navigationOptions }) => {
+DetailsScreen.navigationOptions = ({ navigation }) => {
   return {
     title: navigation.getParam("title", "Loading..."),
-    headerStyle: {
-      backgroundColor: navigationOptions.headerStyle.backgroundColor
-    },
     headerRight: (
       <Button
         onPress={() => navigation.getParam("increment")}
