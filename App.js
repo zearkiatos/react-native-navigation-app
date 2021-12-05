@@ -1,3 +1,5 @@
+import React from 'react';
+import { Text } from 'react-native';
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/Screens/Home";
@@ -26,4 +28,12 @@ const AppNavigator = createStackNavigator(
   }
 );
 
-export default createAppContainer(AppNavigator);
+const RootStack = createStackNavigator({
+  Main: AppNavigator,
+  MyModal: () => <Text>My Modal</Text>
+}, {
+  modo: "modal",
+  headerMode: none
+});
+
+export default createAppContainer(RootStack);

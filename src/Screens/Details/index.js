@@ -19,6 +19,10 @@ const DetailsScreen = ({ navigation }) => {
         title="Change title"
         onPress={() => navigation.setParams({ title: `User ${userId}` })}
       />
+      <Button
+        title="Open Modal"
+        onPress={() => navigation.navigate('MyModal')}
+      />
     </View>
   );
 };
