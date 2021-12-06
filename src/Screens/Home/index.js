@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
       <Button
         title="Details"
         onPress={() =>
-          navigation.openDrawer()
+          navigation.navigate('Details')
         }
       />
     </View>

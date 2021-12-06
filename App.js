@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { createAppContainer } from "react-navigation";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import HomeScreen from "./src/Screens/Home";
@@ -67,7 +67,21 @@ import DetailsScreen from "./src/Screens/Details";
 //   }
 // );
 
-const AppNavigator = createDrawerNavigator(
+// const AppNavigator = createDrawerNavigator(
+//   {
+//     Home: {
+//       screen: HomeScreen
+//     },
+//     Details: {
+//       screen: DetailsScreen
+//     }
+//   },
+//   {
+//     initialRouteName: "Home"
+//   }
+// );
+
+const AppNavigator = createSwitchNavigator(
   {
     Home: {
       screen: HomeScreen
